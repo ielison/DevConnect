@@ -45,6 +45,7 @@ body {
   border-radius: 50%;
   animation-duration: 10s;
   animation-iteration-count: infinite;
+  animation-play-state: paused;
 }
 
 .circle2 {
@@ -69,7 +70,7 @@ body {
 }
 .circle6 {
   background-color: #637173;
-  z-index: -10; 
+  z-index: -10;
   animation-name: breath6;
 }
 
@@ -83,9 +84,11 @@ body {
 
 .start,
 .time,
-.music {
+.music,
+.stop-icon {
   border: none;
   background: none;
+  
 }
 
 .music {
@@ -94,7 +97,8 @@ body {
 
 .start-icon,
 .time-icon,
-.music-icon {
+.music-icon,
+.stop-icon {
   height: 32px;
   width: 32px;
   color: #637173;
