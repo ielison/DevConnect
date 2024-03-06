@@ -9,6 +9,11 @@ body {
   background-color: #ffffff;
 }
 
+.pause,
+.stop {
+  display: none;
+}
+
 .container {
   width: 100vw;
   height: 100vh;
@@ -85,10 +90,10 @@ body {
 .start,
 .time,
 .music,
-.stop-icon {
+.pause,
+.stop {
   border: none;
   background: none;
-  
 }
 
 .music {
@@ -98,6 +103,7 @@ body {
 .start-icon,
 .time-icon,
 .music-icon,
+.pause-icon,
 .stop-icon {
   height: 32px;
   width: 32px;
@@ -108,7 +114,8 @@ body {
 
 .start-icon:hover,
 .time-icon:hover,
-.music-icon:hover {
+.music-icon:hover .pause-icon:hover,
+.stop-icon:hover {
   transform: scale(1.1);
 }
 
