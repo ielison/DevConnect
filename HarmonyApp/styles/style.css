@@ -1,0 +1,122 @@
+@import url("animations.css");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 4fr 1fr 1fr;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.circles {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle1 {
+  background-color: #f1f2f2;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+}
+
+.circle2,
+.circle3,
+.circle4,
+.circle5,
+.circle6 {
+  position: absolute;
+  border-radius: 50%;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+.circle2 {
+  background-color: #cdd4d4;
+  z-index: -1;
+  animation-name: breath2;
+}
+.circle3 {
+  background-color: #adb8b9;
+  z-index: -7;
+  animation-name: breath3;
+}
+.circle4 {
+  background-color: #95a3a4;
+  z-index: -8;
+  animation-name: breath4;
+}
+.circle5 {
+  background-color: #798789;
+  z-index: -9;
+  animation-name: breath5;
+}
+.circle6 {
+  background-color: #637173;
+  z-index: -10; 
+  animation-name: breath6;
+}
+
+/* CONTROLES */
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 20px;
+}
+
+.start,
+.time,
+.music {
+  border: none;
+  background: none;
+}
+
+.music {
+  grid-column: span 2;
+}
+
+.start-icon,
+.time-icon,
+.music-icon {
+  height: 32px;
+  width: 32px;
+  color: #637173;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.start-icon:hover,
+.time-icon:hover,
+.music-icon:hover {
+  transform: scale(1.1);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+  padding-bottom: 10px;
+}
+
+.logo-footer {
+  width: 160px;
+  height: 34px;
+}
