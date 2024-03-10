@@ -1,34 +1,52 @@
 const startBtnEl = document.querySelector(".start");
-const pauseBtnEl = document.querySelector(".pause");
-const pauseIconEl = document.querySelector(".pause-icon");
-const animation2El = document.querySelector(".circle2");
-const animation3El = document.querySelector(".circle3");
-const animation4El = document.querySelector(".circle4");
-const animation5El = document.querySelector(".circle5");
-const animation6El = document.querySelector(".circle6");
-const ctrlEl = document.querySelector(".start");
+const pauseBtnEl = document.createElement("button");
+pauseBtnEl.innerHTML =
+  '<ion-icon class="pause-icon" name="pause-outline"></ion-icon>';
+  const stopBtnEl = document.createElement("button");
+pauseBtnEl.classList.add("pause");
+stopBtnEl.innerHTML =
+  '<ion-icon class="stop-icon" name="stop-outline"></ion-icon>';
+stopBtnEl.classList.add("stop");
+
+const controlEl = document.getElementById("controls");
 const timeEl = document.querySelector(".time");
 const musicEl = document.querySelector(".music");
 
-startBtnEl.addEventListener("click", () => {
-  animation2El.style.animationPlayState = "running";
-  animation3El.style.animationPlayState = "running";
-  animation4El.style.animationPlayState = "running";
-  animation5El.style.animationPlayState = "running";
-  animation6El.style.animationPlayState = "running";
-  timeEl.style.display = "none";
-  musicEl.style.display = "none";
-  startBtnEl.style.display = "none";
-  pauseBtnEl.style.display = "block";
-});
+const animationEls = document.querySelectorAll(".circle");
 
-pauseBtnEl.addEventListener("click", () => {
-  console.log("teste");
-  animation2El.style.animationPlayState = "paused";
-  animation3El.style.animationPlayState = "paused";
-  animation4El.style.animationPlayState = "paused";
-  animation5El.style.animationPlayState = "paused";
-  animation6El.style.animationPlayState = "paused";
-  startBtnEl.style.display = "block";
-  pauseBtnEl.style.display = "none";
-});
+startBtnEl.addEventListener("click", start);
+pauseBtnEl.addEventListener("click", pause);
+stopBtnEl.addEventListener("click", stop);
+
+function start() {
+  animationEls.forEach(
+    (animation) => (animation.style.animationPlayState = "running")
+  );
+  timeEl.remove();
+  musicEl.remove();
+  startBtnEl.remove();
+  controlEl.appendChild(pauseBtnEl);
+  controlEl.appendChild(stopBtnEl);
+}
+
+function pause() {
+  controlEl.insertBefore(startBtnEl, controlEl.children[0]);
+  animationEls.forEach(
+    (animation) => (animation.style.animationPlayState = "paused")
+  );
+  pauseBtnEl.remove();
+}
+
+function stop() {
+  animationEls.forEach((animation) => {
+    animation.style.animation = "none";
+    void animation.offsetWidth;
+    animation.style.animation = null;
+  });
+  
+  pauseBtnEl.remove();
+  stopBtnEl.remove();
+  controlEl.appendChild(startBtnEl);
+  controlEl.appendChild(timeEl);
+  controlEl.appendChild(musicEl);
+}

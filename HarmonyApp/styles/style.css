@@ -9,11 +9,6 @@ body {
   background-color: #ffffff;
 }
 
-.pause,
-.stop {
-  display: none;
-}
-
 .container {
   width: 100vw;
   height: 100vh;
