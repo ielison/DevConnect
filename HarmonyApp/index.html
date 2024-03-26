@@ -43,15 +43,37 @@
       </button>
       <button class="time">
         <ion-icon class="time-icon" name="time-outline"></ion-icon>
+        <dialog class="dialog-time">
+          <h2 class="time-title">Sons</h2>
+          <form action="" method="">
+            <input type="time" />
+            <input class="save-time" type="submit" value="Salvar">
+          </form>
+        </dialog>
       </button>
       <button class="music">
         <ion-icon class="music-icon" name="musical-notes-outline"></ion-icon>
+        <dialog class="dialog-music">
+          <h2 class="music-title">Sons</h2>
+          <form action="" method="">
+            <input type="radio" id="ruido-branco" value="Ruído Branco" checked="checked">
+            <label for="ruido-branco">Ruído Branco</label><br>
+            <input type="radio" id="ruido-rosa" value="Ruído Rosa">
+            <label for="ruido-rosa">Ruído Rosa</label><br>
+            <input type="radio" id="ruido-marrom" value="Ruído Marrom">
+            <label for="ruido-marrom">Ruído Marrom</label><br>
+            <input type="radio" id="ruido-branco" value="Som do Mar">
+            <label for="ruido-branco">Som do Mar</label><br>
+            <input class="save-sound" type="submit" value="Salvar">
+          </form>
+        </dialog>
       </button>
     </div>
     <div class="footer">
       <img class="logo-footer" src="img/logo.png" alt="logo harmony">
     </div>
   </div>
+
 </body>
 
 </html>

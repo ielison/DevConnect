@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 body {
@@ -78,6 +79,12 @@ body {
 
 .controls {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 20px;
+}
+
+.controls.controls--second {
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px 20px;
 }
@@ -92,7 +99,10 @@ body {
 }
 
 .music {
-  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .start-icon,
@@ -125,4 +135,36 @@ body {
 .logo-footer {
   width: 160px;
   height: 34px;
+}
+
+/* MODAL MUSICA */
+
+dialog {
+  border: none;
+  border-radius: 18px;
+  padding: 40px;
+  margin: auto auto;
+}
+
+.music-title,
+.time-title {
+  margin-bottom: 20px;
+}
+
+input{
+  margin-bottom: 16px;
+}
+
+.save-sound,
+.save-time{
+  margin-top: 16px;
+  background-color: #637173;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
