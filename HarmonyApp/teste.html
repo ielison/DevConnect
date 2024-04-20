@@ -1,14 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script defer src="js/teste.js"></script>
-  <title>Document</title>
+<html>
 
+<head>
+  <style>
+    * {
+      margin: 0;
+    }
+
+    #myProgress {
+      width: 100%;
+    }
+
+    #myBar {
+      width: 100%;
+      /* Inicia com 100% */
+      height: 20px;
+
+      background-image: linear-gradient(90deg, rgba(205, 212, 212, 1) 0%, rgba(173, 184, 185, 1) 25%, rgba(149, 163, 164, 1) 50%, rgba(121, 135, 137, 1) 75%, rgba(99, 113, 115, 1) 100%);
+      animation: decreaseWidth linear reverse paused  10s;
+      /* Animação para diminuir a largura */
+    }
+
+    @keyframes decreaseWidth {
+      from {
+        width: 100%;
+        /* Largura inicial */
+      }
+
+      to {
+        width: 0%;
+        /* Largura final */
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <button>Teste</button>
-  <dialog class="dialog-music"> <h2>Outro Teste</h2></dialog>
+
+  <h1>Barra de Progresso</h1>
+  <label for="duration">Duração da animação (segundos):</label>
+  <input type="number" id="duration" >
+  <button onclick="move()">Começar</button>
+  <div style="margin-top: 20px;"></div>
+
+  <div id="myProgress">
+    <div id="myBar"></div>
+  </div>
+
+  <script>
+    var i = 0;
+
+    function move() {
+      var elem = document.getElementById("myBar");
+      var durationInput = document.getElementById("duration");
+      var durationInSeconds = parseInt(durationInput.value); // Obtem a duração inserida pelo usuário
+
+      elem.style.animation = "none"; // Remove a animação anterior
+      elem.offsetHeight; // Força a reflow
+      elem.style.animation = null; // Restaura a animação
+      elem.style.animationDuration = durationInSeconds + "s"; // Define a nova duração da animação
+
+      // Reinicia a animação
+      elem.style.animationPlayState = "running";
+    }
+  </script>
+
 </body>
+
 </html>

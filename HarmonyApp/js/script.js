@@ -8,6 +8,8 @@ stopBtnEl.innerHTML =
   '<ion-icon class="stop-icon" name="stop-outline"></ion-icon>';
 stopBtnEl.classList.add("stop");
 
+const logoEl = document.querySelector(".logo-footer")
+
 const controlEl = document.getElementById("controls");
 const timeBtnEl = document.querySelector(".time");
 const musicBtnEl = document.querySelector(".music");
@@ -16,6 +18,10 @@ const modalMusic = document.querySelector(".dialog-music");
 const modalTime = document.querySelector(".dialog-time");
 
 const saveSound = document.querySelector(".save-sound");
+
+var barEl = document.getElementById("myBar");
+var durationInput = document.getElementById("duration");
+var durationInSeconds = 120; // Obtem a duração inserida pelo usuário
 
 timeBtnEl.onclick = function () {
   modalTime.showModal();
@@ -51,6 +57,8 @@ function start() {
   controlEl.appendChild(pauseBtnEl);
   controlEl.appendChild(stopBtnEl);
   controlEl.classList.add("controls--second");
+  logoEl.style.opacity = "0";
+  barMove();
 }
 
 function pause() {
@@ -58,6 +66,7 @@ function pause() {
   animationEls.forEach(
     (animation) => (animation.style.animationPlayState = "paused")
   );
+  barEl.style.animationPlayState = "paused";
   pauseBtnEl.remove();
 }
 
@@ -66,6 +75,9 @@ function stop() {
     animation.style.animation = "none";
     void animation.offsetWidth;
     animation.style.animation = null;
+
+    logoEl.style.opacity = "1";
+    
   });
 
   pauseBtnEl.remove();
@@ -74,4 +86,18 @@ function stop() {
   controlEl.appendChild(timeBtnEl);
   controlEl.appendChild(musicBtnEl);
   controlEl.classList.remove("controls--second");
+
+  barEl.style.animation = "none";
+  barEl.offsetHeight;
+  barEl.style.animation = null;
+}
+
+function barMove() {
+  barEl.style.animation = "none";
+  barEl.offsetHeight;
+  barEl.style.animation = null; 
+  barEl.style.animationDuration = durationInSeconds + "s";
+
+  
+  barEl.style.animationPlayState = "running";
 }
