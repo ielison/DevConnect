@@ -25,9 +25,6 @@ var durationInSeconds = 120; // Obtem a duração inserida pelo usuário
 
 const formAdicionarSom = document.querySelector('.form-add-sound')
 
-formAdicionarSom.addEventListener('submit', (evento) =>{
-  const valorSom = 
-})
 
 timeBtnEl.onclick = function () {
   modalTime.showModal();
